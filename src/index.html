@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Repositories</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <button class="hamburger" id="hamburger-button">
+        <svg class="hamburger__img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+
+      <img class="logo" src="./assets/header.png" alt="">
+
+      <div class="nav__content" id="nav-menu">
+        <form class="nav__search">
+          <input placeholder="Search or jump to...">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="19px" height="20px" viewBox="0 0 19 20" style="enable-background:new 0 0 19 20;"
+            xml:space="preserve">
+            <path fill="none" stroke="#979A9C" opacity="0.4"
+              d="M3.5,0.5h12c1.7,0,3,1.3,3,3v13c0,1.7-1.3,3-3,3h-12c-1.7,0-3-1.3-3-3v-13C0.5,1.8,1.8,0.5,3.5,0.5z" />
+            <path fill="#979A9C" d="M11.8,6L8,15.1H7.1L10.8,6L11.8,6z" />
+          </svg>
+        </form>
+
+        <!-- NAVIGATION - START -->
+        <nav role="navigation" class="nav">
+          <ul>
+            <li class="nav-link-hide-on-desktop"><a href="#">Dashboard</a></li>
+            <li><a href="#">Pull requests</a></li>
+            <li><a href="#">Issues</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Explore</a></li>
+            <li class="nav-link-hide-on-desktop"><a href="#">Codespaces</a></li>
+            <li class="nav-link-hide-on-desktop"><a href="#">Sponsors</a></li>
+            <li class="nav-link-hide-on-desktop"><a href="#">Settings</a></li>
+            <li class="nav-link-hide-on-desktop"><a href="#">
+                <img id="nav-thumbnail" alt="" class="avatar__thumbnail">
+                <span id="nav-username" class="nav__username"></span>
+              </a></li>
+            <li class="nav-link-hide-on-desktop"><a href="#">
+                <svg class="sign__out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M2 2.75C2 1.784 2.784 1 3.75 1h2.5a.75.75 0 010 1.5h-2.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h2.5a.75.75 0 010 1.5h-2.5A1.75 1.75 0 012 13.25V2.75zm10.44 4.5H6.75a.75.75 0 000 1.5h5.69l-1.97 1.97a.75.75 0 101.06 1.06l3.25-3.25a.75.75 0 000-1.06l-3.25-3.25a.75.75 0 10-1.06 1.06l1.97 1.97z">
+                  </path>
+                </svg>
+                Sign out</a></li>
+          </ul>
+        </nav>
+        <!-- NAVIGATION - END -->
+      </div>
+
+      <div class="notifications">
+        <svg class="bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path d="M8 16a2 2 0 001.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 008 16z">
+          </path>
+          <path fill-rule="evenodd"
+            d="M8 1.5A3.5 3.5 0 004.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.018.018 0 00-.003.01l.001.006c0 .002.002.004.004.006a.017.017 0 00.006.004l.007.001h10.964l.007-.001a.016.016 0 00.006-.004.016.016 0 00.004-.006l.001-.007a.017.017 0 00-.003-.01l-1.703-2.554a1.75 1.75 0 01-.294-.97V5A3.5 3.5 0 008 1.5zM3 5a5 5 0 0110 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.518 1.518 0 0113.482 13H2.518a1.518 1.518 0 01-1.263-2.36l1.703-2.554A.25.25 0 003 7.947V5z">
+          </path>
+        </svg>
+        <span class="dot"></span>
+      </div>
+
+      <div class="site__links">
+        <button class="dropdown__btn" id="site-links-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+            <path fill-rule="evenodd"
+              d="M8 2a.75.75 0 01.75.75v4.5h4.5a.75.75 0 010 1.5h-4.5v4.5a.75.75 0 01-1.5 0v-4.5h-4.5a.75.75 0 010-1.5h4.5v-4.5A.75.75 0 018 2z">
+            </path>
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+            <path
+              d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z">
+            </path>
+          </svg>
+
+        </button>
+        <ul class="dropdown dropdown__padding" id="site-links-dropdown">
+          <li><a href="#">New repository</a></li>
+          <li><a href="#">Import repository</a></li>
+          <li><a href="#">New gist</a></li>
+          <li><a href="#">New organization</a></li>
+          <li><a href="#">New project</a></li>
+        </ul>
+      </div>
+
+      <div class="settings">
+        <button class="dropdown__btn" id="settings-btn">
+          <img id="thumbnail" alt="" class="avatar__thumbnail">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+            <path
+              d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z">
+            </path>
+          </svg>
+        </button>
+        <ul class="dropdown" id="settings-dropdown">
+          <p class="sign__in">
+            Signed in as <strong id="sign-in"></strong>
+          </p>
+
+          <div class="status__container">
+            <div class="status"></div>
+          </div>
+          <li><a href="#">Your profile</a></li>
+          <li><a href="#">Your repositories</a></li>
+          <li><a href="#">Your organizations</a></li>
+          <li><a href="#">Your enterprises</a></li>
+          <li><a href="#">Your projects</a></li>
+          <li><a href="#">Your stars</a></li>
+          <li><a href="#">Your gists</a></li>
+          <div role="none" class="dropdown__divider"></div>
+          <li><a href="#">Feature preview</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </header>
+    <h1>Yippee!!!</h1>
+
+    <script src="./index.js"></script>
+  </body>
+
+</html>
