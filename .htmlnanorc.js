@@ -1,4 +1,4 @@
 module.exports = {
   minifySvg: false,
-  removeComments: false,
+  removeComments: true,
 };

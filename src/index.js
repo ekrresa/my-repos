@@ -3,6 +3,8 @@ import { activateDropdown } from "./scripts/dropdown";
 import { renderMisc, renderProfile, renderRepoList } from "./scripts/render";
 import { observeProfileAvatar } from "./scripts/observer";
 
+import "./style.css";
+
 // Fetch and render data
 fetchUserData()
   .catch(displayFetchError)
