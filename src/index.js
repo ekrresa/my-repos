@@ -1,9 +1,26 @@
-import { fetchUserData } from "./scripts/fetchData";
+import { fetchUserData, displayFetchError } from "./scripts/fetchData";
 import { activateDropdown } from "./scripts/dropdown";
+import { renderMisc, renderProfile, renderRepoList } from "./scripts/render";
+import { observeProfileAvatar } from "./scripts/observer";
 
-// fetchUserData().then((res) => {
-//   console.log({ res });
-// });
+fetchUserData()
+  .catch(displayFetchError)
+  .then(({ data }) => {
+    hideLoader();
+    renderProfile(data.viewer);
+    renderRepoList(data.viewer.repositories.nodes);
+    renderMisc(data.viewer);
+  })
+  .then(observeProfileAvatar)
+  .catch((err) => {
+    console.error(err);
+  });
+
+function hideLoader() {
+  const loaders = document.querySelectorAll(".loader");
+
+  loaders.forEach((loader) => loader.classList.add("hide__loader"));
+}
 
 const hamburgerButton = document.getElementById("hamburger-button");
 const navMenu = document.getElementById("nav-menu");

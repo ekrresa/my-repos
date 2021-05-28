@@ -523,57 +523,6 @@ img {
   }
 }
 
-@media (min-width: 868px) {
-  .main {
-    grid-template-columns: 32% 1fr;
-  }
-
-  .tabs {
-    order: -1;
-    grid-column: 1/3;
-    grid-gap: 1em;
-  }
-
-  .temp__container {
-    display: block;
-  }
-
-  .tab__list {
-    grid-column: 2/3;
-  }
-
-  .profile__info {
-    top: -3em;
-    max-width: 20em;
-    margin-left: auto;
-  }
-
-  .profile__info .avatar {
-    width: 100%;
-    z-index: 3;
-    margin-right: 0;
-  }
-
-  .profile__info .metadata {
-    margin-left: 0;
-    margin-top: 0.5em;
-  }
-
-  .profile__info .dart {
-    display: flex;
-    align-items: baseline;
-  }
-
-  .dart:hover {
-    box-shadow: 0 0 20px #4d4d4d1a;
-  }
-
-  .dart:hover .status__message {
-    display: inline-block;
-    color: var(--link-color);
-  }
-}
-
 /* REPO TABS SECTION */
 .tabs {
   border-bottom: 1px solid var(--border-color);
@@ -763,6 +712,57 @@ img {
 
 .repo__parent {
   padding-bottom: 2em;
+}
+
+@media (min-width: 868px) {
+  .main {
+    grid-template-columns: 32% 1fr;
+  }
+
+  .tabs {
+    order: -1;
+    grid-column: 1/3;
+    grid-gap: 1em;
+  }
+
+  .temp__container {
+    display: block;
+  }
+
+  .tab__list {
+    grid-column: 2/3;
+  }
+
+  .profile__info {
+    top: -3em;
+    max-width: 20em;
+    margin-left: auto;
+  }
+
+  .profile__info .avatar {
+    width: 100%;
+    z-index: 3;
+    margin-right: 0;
+  }
+
+  .profile__info .metadata {
+    margin-left: 0;
+    margin-top: 0.5em;
+  }
+
+  .profile__info .dart {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .dart:hover {
+    box-shadow: 0 0 20px #4d4d4d1a;
+  }
+
+  .dart:hover .status__message {
+    display: inline-block;
+    color: var(--link-color);
+  }
 }
 
 /* REPOSITORY COMPONENT- START */
