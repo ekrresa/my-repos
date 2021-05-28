@@ -1,5 +1,7 @@
 # My Repos
 
+Site is [live here](https://nostalgic-golick-dca801.netlify.app/)
+
 ## Development
 
 1. Clone the project
