@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .cache/
+.env
 
 # OS generated files
 .DS_Store
