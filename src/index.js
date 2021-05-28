@@ -3,6 +3,7 @@ import { activateDropdown } from "./scripts/dropdown";
 import { renderMisc, renderProfile, renderRepoList } from "./scripts/render";
 import { observeProfileAvatar } from "./scripts/observer";
 
+// Fetch and render data
 fetchUserData()
   .catch(displayFetchError)
   .then(({ data }) => {
@@ -22,6 +23,7 @@ function hideLoader() {
   loaders.forEach((loader) => loader.classList.add("hide__loader"));
 }
 
+// Mobile menu
 const hamburgerButton = document.getElementById("hamburger-button");
 const navMenu = document.getElementById("nav-menu");
 
@@ -29,6 +31,7 @@ hamburgerButton.addEventListener("click", () => {
   navMenu.classList.toggle("nav__open");
 });
 
+// Dropdowns
 const siteLinksBtn = document.querySelector("#site-links-btn");
 const siteLinksDropdown = document.querySelector("#site-links-dropdown");
 
