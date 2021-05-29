@@ -1,5 +1,6 @@
-const query = `{
-  viewer {
+const query = `
+query getUserProfile($login:String!) {
+  user(login: $login) {
 		name
 		url
 		login
@@ -45,7 +46,7 @@ const query = `{
 	}
 }`;
 
-export async function fetchUserData() {
+export async function fetchUserData(username) {
   const GITHUB_API_ENDPOINT = "https://api.github.com/graphql";
   const resp = await fetch(GITHUB_API_ENDPOINT, {
     method: "POST",
@@ -55,17 +56,9 @@ export async function fetchUserData() {
     },
     body: JSON.stringify({
       query,
+      variables: { login: username },
     }),
   });
 
   return resp.json();
-}
-
-export function displayFetchError() {
-  const errorTemplate = document.createElement("template");
-  const body = document.querySelector("body");
-
-  errorTemplate.innerHTML =
-    '<div class="error">Error fetching data from GitHub</div>';
-  body.append(errorTemplate.content);
 }

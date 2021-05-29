@@ -5,8 +5,8 @@
   "author": "Ochuko Ekrresa",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./"
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url ./"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"

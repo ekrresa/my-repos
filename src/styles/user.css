@@ -1,5 +1,5 @@
-@import "./styles/dropdown.css";
-@import "./styles/loader.css";
+@import "./dropdown.css";
+@import "./loader.css";
 
 :root {
   --border-color: #e1e4e8;
@@ -261,7 +261,7 @@ img {
   }
 
   .nav__search:focus-within {
-    max-width: 25em;
+    max-width: 30em;
   }
 
   .nav-link-hide-on-desktop {
@@ -959,4 +959,14 @@ footer .footer__list {
     margin-left: 2em;
     justify-content: space-between;
   }
+}
+
+.error {
+  color: #d96061;
+  background: #ff9fa02e;
+  margin-bottom: 1.2em;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 0.9rem;
 }
