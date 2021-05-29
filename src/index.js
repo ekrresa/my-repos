@@ -1,48 +1,36 @@
-import { fetchUserData, displayFetchError } from "./scripts/fetchData";
-import { activateDropdown } from "./scripts/dropdown";
-import { renderMisc, renderProfile, renderRepoList } from "./scripts/render";
-import { observeProfileAvatar } from "./scripts/observer";
+import { fetchUserData } from "./scripts/fetchData";
 
-import "./style.css";
+import "./styles.css";
+import "./styles/loader.css";
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Fetch and render data
-  fetchUserData()
-    .catch(displayFetchError)
-    .then(({ data }) => {
-      hideLoader();
-      renderProfile(data.viewer);
-      renderRepoList(data.viewer.repositories.nodes);
-      renderMisc(data.viewer);
-    })
-    .then(() => {
-      observeProfileAvatar();
+const userForm = document.getElementById("user-form");
+const loader = document.getElementById("form-loading");
+const errorDiv = document.getElementById("error");
 
-      // Mobile menu
-      const hamburgerButton = document.getElementById("hamburger-button");
-      const navMenu = document.getElementById("nav-menu");
+userForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-      hamburgerButton.addEventListener("click", () => {
-        navMenu.classList.toggle("nav__open");
-      });
+  loader.classList.add("loader");
 
-      // Dropdowns
-      const siteLinksBtn = document.querySelector("#site-links-btn");
-      const siteLinksDropdown = document.querySelector("#site-links-dropdown");
+  const formData = new FormData(userForm);
+  const username = formData.get("username");
 
-      const settingsBtn = document.querySelector("#settings-btn");
-      const settingsDropdown = document.querySelector("#settings-dropdown");
+  try {
+    const response = await fetchUserData(username);
 
-      activateDropdown(siteLinksBtn, siteLinksDropdown);
-      activateDropdown(settingsBtn, settingsDropdown);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+    loader.classList.remove("loader");
+
+    if (!response.data.user) {
+      errorDiv.classList.add("error");
+      errorDiv.textContent = `User with username: ${username} does not exist on GitHub`;
+      return;
+    }
+
+    localStorage.setItem("github:user", JSON.stringify(response));
+    window.location.href = "/user.html";
+  } catch (error) {
+    console.log({ errorDiv });
+    errorDiv.classList.add("error");
+    errorDiv.textContent = error.message;
+  }
 });
-
-function hideLoader() {
-  const loaders = document.querySelectorAll(".loader");
-
-  loaders.forEach((loader) => loader.classList.add("hide__loader"));
-}
