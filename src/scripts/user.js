@@ -1,4 +1,3 @@
-import { fetchUserData, displayFetchError } from "./fetchData";
 import { activateDropdown } from "./dropdown";
 import { renderMisc, renderProfile, renderRepoList } from "./render";
 import { observeProfileAvatar } from "./observer";
@@ -6,11 +5,18 @@ import { observeProfileAvatar } from "./observer";
 import "../styles/user.css";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Fetch and render data
   const user = localStorage.getItem("github:user");
 
   if (!user) {
-    return displayFetchError();
+    const errorDiv = document.getElementById("error");
+    errorDiv.classList.add("error");
+    errorDiv.textContent = "Please input a username. Redirecting...";
+
+    setTimeout(() => {
+      window.location.href = "/index.html";
+    }, 3000);
+
+    return;
   }
 
   const { data } = JSON.parse(user);

@@ -960,3 +960,13 @@ footer .footer__list {
     justify-content: space-between;
   }
 }
+
+.error {
+  color: #d96061;
+  background: #ff9fa02e;
+  margin-bottom: 1.2em;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 0.9rem;
+}

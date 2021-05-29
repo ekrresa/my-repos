@@ -62,12 +62,3 @@ export async function fetchUserData(username) {
 
   return resp.json();
 }
-
-export function displayFetchError() {
-  const errorTemplate = document.createElement("template");
-  const body = document.querySelector("body");
-
-  errorTemplate.innerHTML =
-    '<div class="error">Error fetching data from GitHub</div>';
-  body.append(errorTemplate.content);
-}
