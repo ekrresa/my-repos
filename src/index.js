@@ -29,7 +29,6 @@ userForm.addEventListener("submit", async (event) => {
     localStorage.setItem("github:user", JSON.stringify(response));
     window.location.href = "/user.html";
   } catch (error) {
-    console.log({ errorDiv });
     errorDiv.classList.add("error");
     errorDiv.textContent = error.message;
   }
